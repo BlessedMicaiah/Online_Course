@@ -36,11 +36,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/"><a className="text-gray-400 hover:text-primary transition-colors">Home</a></Link></li>
-              <li><Link href="/lessons"><a className="text-gray-400 hover:text-primary transition-colors">Courses</a></Link></li>
-              <li><Link href="/challenges"><a className="text-gray-400 hover:text-primary transition-colors">Challenges</a></Link></li>
-              <li><Link href="/community"><a className="text-gray-400 hover:text-primary transition-colors">Community</a></Link></li>
-              <li><Link href="/about"><a className="text-gray-400 hover:text-primary transition-colors">About Us</a></Link></li>
+              <li><Link href="/" className="text-gray-400 hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/lessons" className="text-gray-400 hover:text-primary transition-colors">Courses</Link></li>
+              <li><Link href="/challenges" className="text-gray-400 hover:text-primary transition-colors">Challenges</Link></li>
+              <li><Link href="/community" className="text-gray-400 hover:text-primary transition-colors">Community</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-primary transition-colors">About Us</Link></li>
             </ul>
           </div>
           
