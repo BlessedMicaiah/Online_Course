@@ -49,12 +49,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <MobileMenuProvider>
-          <div className="flex flex-col min-h-screen relative">
+          <div className="flex flex-col min-h-screen">
             <DayNightBackground className="fixed inset-0 pointer-events-none" />
             <Header />
             <main className="flex-grow relative z-10">
               <Router />
             </main>
+            {/* Ensure the footer is rendered separately and after main content */}
             <Footer />
             <div className="fixed bottom-6 right-6 z-50">
               <ThemeToggle />

@@ -24,14 +24,14 @@ export function CallToAction() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/account">
-              <a className="py-3 px-6 bg-white hover:bg-gray-100 text-indigo-800 rounded-lg text-center font-medium transition-colors">
+              <div className="py-3 px-6 bg-white hover:bg-gray-100 text-indigo-800 rounded-lg text-center font-medium transition-colors cursor-pointer">
                 Start Free Trial
-              </a>
+              </div>
             </Link>
             <Link href="/lessons">
-              <a className="py-3 px-6 bg-transparent hover:bg-white/10 border border-white text-white rounded-lg text-center font-medium transition-colors">
+              <div className="py-3 px-6 bg-transparent hover:bg-white/10 border border-white text-white rounded-lg text-center font-medium transition-colors cursor-pointer">
                 View All Courses
-              </a>
+              </div>
             </Link>
           </div>
         </motion.div>
