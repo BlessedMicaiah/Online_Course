@@ -44,7 +44,7 @@
     --secondary: 36 84% 40%; /* Dark Gold */
     --accent: 30 95% 60%; /* Amber Gold */
 
-    --background: 210 20% 98%; /* Light blue-gray for day */
+    --background: 210 40% 98%; /* Light blue-gray for day */
     --foreground: 220 26% 9%;
 
     --card: 0 0% 100%;
@@ -109,7 +109,7 @@
   }
 
   .day-sky {
-    @apply bg-background relative overflow-hidden;
+    @apply relative overflow-hidden bg-blue-50;
   }
 
   .sun {

@@ -70,12 +70,12 @@ export function DayNightBackground({ className = '' }: DayNightBackgroundProps) 
     );
   }
 
+  // Simple light background for day mode (no stars)
   return (
     <div className={`day-sky ${className}`}>
       <div className="sun" style={{ 
-        top: '50%', 
-        left: '50%', 
-        transform: 'translate(-50%, -50%)', 
+        top: '10%', 
+        right: '10%', 
         animation: 'pulse-glow 3s infinite ease-in-out' 
       }}>
         {sunRays.map((ray) => (
@@ -85,8 +85,6 @@ export function DayNightBackground({ className = '' }: DayNightBackgroundProps) 
             style={{
               width: ray.width,
               height: ray.height,
-              top: '50%',
-              left: '50%',
               transform: `translateX(-50%) rotate(${ray.angle}deg)`,
               opacity: ray.opacity
             }}
