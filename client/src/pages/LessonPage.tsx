@@ -5,7 +5,6 @@ import { Course } from '@shared/schema';
 import { ArrowLeft, Clock, Award, Book } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import ThreeModel from '@/components/ui/ThreeModel';
 import { motion } from 'framer-motion';
 
 export function LessonPage() {
@@ -93,7 +92,15 @@ export function LessonPage() {
                   </svg>
                 </Button>
               </div>
-              <ThreeModel className="h-full w-full opacity-70" />
+              {/* Temporarily replaced ThreeModel with CSS animation */}
+              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
+                <div className="w-24 h-24 rounded-full bg-primary/10 relative animate-pulse">
+                  <div className="w-20 h-20 rounded-full bg-primary/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-ping"></div>
+                  <div className="w-16 h-16 rounded-full bg-primary/30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+                <div className="absolute top-4 left-4 w-16 h-16 rounded-full bg-accent/10 animate-pulse"></div>
+                <div className="absolute bottom-4 right-4 w-16 h-16 rounded-full bg-accent/10 animate-pulse"></div>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
-import ThreeCanvas from './ui/ThreeCanvas';
-import ThreeModel from './ui/ThreeModel';
 
 export function HeroSection() {
   return (
@@ -10,7 +8,13 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-[hsl(var(--dark-surface))]"></div>
         <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1/2 h-full opacity-30 pointer-events-none">
-          <ThreeCanvas particleCount={100} />
+          {/* Temporarily replaced ThreeCanvas with CSS animation */}
+          <div className="w-full h-full relative">
+            <div className="animate-pulse absolute w-8 h-8 bg-primary/30 rounded-full top-1/4 left-1/4"></div>
+            <div className="animate-pulse absolute w-12 h-12 bg-accent/30 rounded-full top-1/2 left-1/3" style={{animationDelay: '0.5s'}}></div>
+            <div className="animate-pulse absolute w-10 h-10 bg-primary/30 rounded-full bottom-1/4 right-1/4" style={{animationDelay: '1s'}}></div>
+            <div className="animate-pulse absolute w-16 h-16 bg-accent/30 rounded-full bottom-1/3 right-1/3" style={{animationDelay: '1.5s'}}></div>
+          </div>
         </div>
       </div>
 
@@ -60,8 +64,15 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative rounded-xl overflow-hidden bg-[hsl(var(--dark-surface))] border border-[hsl(var(--dark-light))] shadow-xl h-full">
-              <div className="w-full h-[400px]">
-                <ThreeModel />
+              <div className="w-full h-[400px] flex items-center justify-center relative bg-gradient-to-br from-primary/10 to-accent/10">
+                {/* Temporarily replaced ThreeModel with CSS animation */}
+                <div className="w-32 h-32 rounded-full bg-primary/20 relative animate-pulse">
+                  <div className="w-24 h-24 rounded-full bg-primary/30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-ping"></div>
+                  <div className="w-16 h-16 rounded-full bg-primary/40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="absolute -top-10 -right-10 w-20 h-20 rounded-full bg-accent/20 animate-pulse"></div>
+                  <div className="absolute -bottom-8 -left-8 w-16 h-16 rounded-full bg-accent/20 animate-pulse"></div>
+                </div>
+                <div className="absolute top-12 right-12 text-xl text-primary font-mono">Three.js Model</div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-40"></div>
               

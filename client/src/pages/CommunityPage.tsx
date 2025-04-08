@@ -4,7 +4,6 @@ import { MessageSquare, Video, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import ThreeCanvas from '@/components/ui/ThreeCanvas';
 
 export function CommunityPage() {
   return (
@@ -13,7 +12,24 @@ export function CommunityPage() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-[hsl(var(--dark-surface))]"></div>
         <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-20 pointer-events-none">
-          <ThreeCanvas showFloatingObjects={true} particleCount={30} />
+          {/* Temporarily replaced ThreeCanvas with CSS animation */}
+          <div className="w-full h-full relative overflow-hidden bg-gradient-to-tr from-primary/10 to-accent/5">
+            {[...Array(10)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full bg-white/30"
+                style={{
+                  width: `${Math.random() * 20 + 5}px`,
+                  height: `${Math.random() * 20 + 5}px`,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  opacity: Math.random() * 0.5 + 0.3,
+                  animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
