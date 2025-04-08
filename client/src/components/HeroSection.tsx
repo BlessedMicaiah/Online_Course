@@ -37,14 +37,14 @@ export function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/lessons">
-                <a className="py-3 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg text-center font-medium transition-colors">
+                <div className="py-3 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg text-center font-medium transition-colors cursor-pointer">
                   Start Learning
-                </a>
+                </div>
               </Link>
               <Link href="/community">
-                <a className="py-3 px-6 bg-transparent hover:bg-white/5 border border-gray-600 text-white rounded-lg text-center font-medium transition-colors">
+                <div className="py-3 px-6 bg-transparent hover:bg-white/5 border border-gray-600 text-white rounded-lg text-center font-medium transition-colors cursor-pointer">
                   Join Community
-                </a>
+                </div>
               </Link>
             </div>
             <div className="flex items-center space-x-4 pt-4">
