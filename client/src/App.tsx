@@ -3,8 +3,11 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { MobileMenuProvider } from "@/contexts/MobileMenuContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import DayNightBackground from "@/components/ui/DayNightBackground";
 import Home from "@/pages/Home";
 import LessonPage from "@/pages/LessonPage";
 import ChallengePage from "@/pages/ChallengePage";
@@ -44,16 +47,22 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <MobileMenuProvider>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            <Router />
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-      </MobileMenuProvider>
+      <ThemeProvider>
+        <MobileMenuProvider>
+          <div className="flex flex-col min-h-screen relative">
+            <DayNightBackground className="fixed inset-0 pointer-events-none" />
+            <Header />
+            <main className="flex-grow relative z-10">
+              <Router />
+            </main>
+            <Footer />
+            <div className="fixed bottom-6 right-6 z-50">
+              <ThemeToggle />
+            </div>
+          </div>
+          <Toaster />
+        </MobileMenuProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

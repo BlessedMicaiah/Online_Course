@@ -3,18 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  /* Dark mode (default) */
   :root {
-    --primary: 243 77% 63%;
-    --secondary: 160 64% 40%;
-    --accent: 25 95% 53%;
+    --primary: 43 74% 49%; /* Gold */
+    --secondary: 36 84% 40%; /* Dark Gold */
+    --accent: 48 95% 53%; /* Light Gold */
 
-    --background: 222.2 84% 4.9%;
+    --background: 220 26% 9%; /* Dark blue-gray for night */
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 220 26% 9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 26% 9%;
     --popover-foreground: 210 40% 98%;
 
     --primary-foreground: 0 0% 100%;
@@ -26,12 +27,52 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 43 74% 49%;
 
     --radius: 0.5rem;
 
-    --dark-surface: 223 47% 11%;
-    --dark-light: 226 32% 24%;
+    --dark-surface: 219 30% 12%;
+    --dark-light: 220 20% 18%;
+
+    /* Stars for night sky */
+    --star-color: 60 100% 100%;
+  }
+
+  /* Light mode */
+  .light-mode {
+    --primary: 43 74% 49%; /* Gold */
+    --secondary: 36 84% 40%; /* Dark Gold */
+    --accent: 30 95% 60%; /* Amber Gold */
+
+    --background: 210 20% 98%; /* Light blue-gray for day */
+    --foreground: 220 26% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 26% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 26% 9%;
+
+    --primary-foreground: 0 0% 0%;
+    --secondary-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 0%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 43 74% 49%;
+
+    --dark-surface: 210 20% 90%;
+    --dark-light: 210 20% 85%;
+
+    /* Sun rays for day sky */
+    --sun-color: 48 100% 60%;
+  }
+
+  .dark-mode {
+    /* This is just for semantic clarity, as dark is the default */
   }
   
   * {
@@ -39,7 +80,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground transition-colors duration-500;
   }
 
   /* Custom font classes */
@@ -50,15 +91,49 @@
 
 @layer components {
   .gradient-bg {
-    @apply bg-gradient-to-r from-indigo-800 to-purple-800;
+    @apply bg-gradient-to-r from-amber-700 to-yellow-600;
   }
   
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
+
+  /* Day/Night sky background styles */
+  .night-sky {
+    @apply bg-background relative overflow-hidden;
+  }
+
+  .star {
+    @apply absolute rounded-full bg-white/80;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .day-sky {
+    @apply bg-background relative overflow-hidden;
+  }
+
+  .sun {
+    @apply absolute w-16 h-16 rounded-full bg-yellow-300;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8), 0 0 60px rgba(255, 204, 0, 0.6);
+  }
+
+  .sun-ray {
+    @apply absolute bg-yellow-300/30;
+    transform-origin: bottom center;
+  }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    @apply fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer shadow-lg transition-all duration-300;
+    background-color: hsl(var(--primary));
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
 }
 
-/* Custom animation for particle effects */
+/* Custom animations */
 @keyframes float {
   0% {
     transform: translateY(0) translateX(0);
@@ -74,5 +149,34 @@
   }
   100% {
     transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.6), 0 0 40px rgba(255, 204, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8), 0 0 60px rgba(255, 204, 0, 0.6);
   }
 }
